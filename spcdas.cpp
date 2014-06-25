@@ -57,7 +57,7 @@ ulong v;
         else if(pos == 2)v=spc.mem[spc.pc+c]|(spc.mem[spc.pc+c+1]<<8);
         else if(pos == 3)v=spc.mem[spc.pc+d]|(spc.mem[spc.pc+d+1]<<8);
         pos++;
-        sprintf(t, "%0.4x,%d", (v>>3)&0x1fff, v&7);
+        sprintf(t, "%0.4x,%d", v&0x1fff, v>>13);
       } else if(x=='r') {
         if     (pos == 0)v=spc.mem[spc.pc+a];
         else if(pos == 1)v=spc.mem[spc.pc+b];
