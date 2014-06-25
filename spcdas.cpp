@@ -65,7 +65,7 @@ ulong v;
         else if(pos == 3)v=spc.mem[spc.pc+d];
         pos++;
         if(spc.rel == true) {
-          v=(spc.pc+2)+(signed char)v;
+          v=(spc.pc+o)+(signed char)v;
           sprintf(t, "%0.4x", v&0xffff);
         } else {
           sprintf(t, "%0.2x", v&0xff);
@@ -371,7 +371,7 @@ int i, fsize, eof = 1;
 //not enough arguments? print help message
   if(argc < 3) {
     printf(
-      "spcdas v0.01 ~byuu\n"
+      "spcdas v0.02 ~ byuu, gocha\n"
       "usage: spcdas input.bin [-options] output.s\n"
       "\n"
       "options: [x is a word in hex - ex: c2ff]\n"
