@@ -34,7 +34,7 @@ ulong v;
     strcat(ws, " ");
   }
   z=strlen(ws);
-  for(i=0;i<strlen(s);i++) {
+  for(i=0;i<(int)strlen(s);i++) {
     if(s[i]=='*') {
       x=s[++i];
       if(x=='b') {
@@ -384,7 +384,7 @@ int i, fsize, eof = 1;
       "\n"
       "press any key...\n"
     );
-    getch();
+    _getch();
     return 0;
   }
 
