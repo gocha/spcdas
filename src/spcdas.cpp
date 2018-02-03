@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <conio.h>
+
 typedef unsigned char  byte;
 typedef unsigned short word;
 typedef unsigned long  ulong;
@@ -382,9 +382,7 @@ int i, fsize, eof = 1;
       "  -addr [on | off] : enable / disable addresses                [default:   on]\n"
       "  -hex  [on | off] : enable / disable opcode hex display       [default:   on]\n"
       "\n"
-      "press any key...\n"
     );
-    _getch();
     return 0;
   }
 
