@@ -21,7 +21,7 @@ uint v;
   if(spc.addr == true) {
     sprintf(ws, "%04x: ", spc.pc);
   } else {
-    sprintf(ws, "");
+    strcpy(ws, "");
   }
   if(spc.hex == true) {
     for(i=0;i<o;i++) {
