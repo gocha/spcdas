@@ -19,13 +19,13 @@ char ws[4096], t[16];
 int i, x, pos = 0, z;
 uint v;
   if(spc.addr == true) {
-    sprintf(ws, "%0.4x: ", spc.pc);
+    sprintf(ws, "%04x: ", spc.pc);
   } else {
     sprintf(ws, "");
   }
   if(spc.hex == true) {
     for(i=0;i<o;i++) {
-      sprintf(t, "%0.2x ", spc.mem[spc.pc+i]);
+      sprintf(t, "%02x ", spc.mem[spc.pc+i]);
       strcat(ws, t);
     }
     for(;i<3;i++) {
@@ -43,21 +43,21 @@ uint v;
         else if(pos == 2)v=spc.mem[spc.pc+c];
         else if(pos == 3)v=spc.mem[spc.pc+d];
         pos++;
-        sprintf(t, "%0.2x", v&0xff);
+        sprintf(t, "%02x", v&0xff);
       } else if(x=='w') {
         if     (pos == 0)v=spc.mem[spc.pc+a]|(spc.mem[spc.pc+a+1]<<8);
         else if(pos == 1)v=spc.mem[spc.pc+b]|(spc.mem[spc.pc+b+1]<<8);
         else if(pos == 2)v=spc.mem[spc.pc+c]|(spc.mem[spc.pc+c+1]<<8);
         else if(pos == 3)v=spc.mem[spc.pc+d]|(spc.mem[spc.pc+d+1]<<8);
         pos++;
-        sprintf(t, "%0.4x", v&0xffff);
+        sprintf(t, "%04x", v&0xffff);
       } else if(x=='m') {
         if     (pos == 0)v=spc.mem[spc.pc+a]|(spc.mem[spc.pc+a+1]<<8);
         else if(pos == 1)v=spc.mem[spc.pc+b]|(spc.mem[spc.pc+b+1]<<8);
         else if(pos == 2)v=spc.mem[spc.pc+c]|(spc.mem[spc.pc+c+1]<<8);
         else if(pos == 3)v=spc.mem[spc.pc+d]|(spc.mem[spc.pc+d+1]<<8);
         pos++;
-        sprintf(t, "%0.4x,%d", v&0x1fff, v>>13);
+        sprintf(t, "%04x,%d", v&0x1fff, v>>13);
       } else if(x=='r') {
         if     (pos == 0)v=spc.mem[spc.pc+a];
         else if(pos == 1)v=spc.mem[spc.pc+b];
@@ -66,9 +66,9 @@ uint v;
         pos++;
         if(spc.rel == true) {
           v=(spc.pc+o)+(signed char)v;
-          sprintf(t, "%0.4x", v&0xffff);
+          sprintf(t, "%04x", v&0xffff);
         } else {
-          sprintf(t, "%0.2x", v&0xff);
+          sprintf(t, "%02x", v&0xff);
         }
       }
       ws[z]=0;
