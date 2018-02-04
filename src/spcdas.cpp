@@ -4,7 +4,7 @@
 
 typedef unsigned char  byte;
 typedef unsigned short word;
-typedef unsigned long  ulong;
+typedef unsigned int   uint;
 
 FILE *fp, *wr;
 struct {
@@ -14,10 +14,10 @@ struct {
 }spc = { 0x0000, 0x0000, 0x0000, true, true, true };
 
 //print one opcode using formatting passed by disas_op
-void disas(byte o, char *s, byte a = 0, byte b = 0, byte c = 0, byte d = 0) {
+void disas(byte o, const char *s, byte a = 0, byte b = 0, byte c = 0, byte d = 0) {
 char ws[4096], t[16];
 int i, x, pos = 0, z;
-ulong v;
+uint v;
   if(spc.addr == true) {
     sprintf(ws, "%0.4x: ", spc.pc);
   } else {
