@@ -36,8 +36,8 @@ after_build:
   - ps: $env:my_version = "$env:gitrev"
   - set package_name=spcdas-%my_version%-%arch%
   - copy build\%config%\spcdas.exe .
-  - 7z a -mx9 %package_name%.7z src test spcdas.exe README.md LICENSE
+  - 7z a %package_name%.zip src test spcdas.exe README.md LICENSE
 
 artifacts:
-  - path: $(package_name).7z
+  - path: $(package_name).zip
     name: $(arch)
