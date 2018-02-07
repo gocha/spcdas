@@ -36,7 +36,7 @@ after_build:
   - ps: $env:gitrev = git describe --tags
   - ps: $env:my_version = "$env:gitrev"
   - set package_name=spcdas-%my_version%-%arch%
-  - copy build\%config%\spcdas.exe .
+  - copy "build\%config%\spcdas.exe" .
   - 7z a %package_name%.zip src test spcdas.exe README.md LICENSE
 
 artifacts:
